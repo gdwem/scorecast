@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+  <title>Scorecast - turn the weather into music</title>
+</head>
+<body>
+
+  <!--Title-->
+  <div class="title">
+    <h1>Scorecast</h1>
+    <p>A generative musical player controlled by time, place and weather conditions.</p>
+    <p>Built with ToneJS, vanilla JS and webpack.</p>
+    <p>Weather info supplied by APIXU.</p>
+    <p>Enjoy!</p>
+  </div>
+
+  <!--Search field-->
+
+  <div class="search">
+    <h1>Search for a location<h1>
+    <input type="text" name="search-a-location">
+    <button id="search-location">Search</button>
+  </div>
+
+  <div class="show-data">
+    <h2>Send data to FX controls</h2>
+    <button id="showData">Send</button>
+  </div>
+
+  <!--Display response-->
+
+  <div class="weather">
+    <div class="temperature">
+      <h2>Daily High Temperature</h2>
+      <input type="text" name="max-temp" id="temp" readonly>
+    </div>
+    <div class="rain">
+      <h2>Average Rainfall</h2>
+      <input type="text" name="rainfall" id="rain">
+    </div>
+    <div class="wind">
+      <h2>Average Wind Speed</h2>
+      <input type="text" name="wind-speed" id="wind" readonly>
+    </div>
+  </div>
+
+
+
+  <!--Main container-->
+
+  <div class="main-container">
+
+  <!--Sample container-->
+
+    <div class="sample-container">
+
+      <div>
+        <h1>Play a random sample pattern</h1>
+        <button id="playSample">Play...</button>
+      </div>
+      <div>
+        <h1>Stop the pattern</h1>
+        <button id="stopSample">Stop!</button>
+      </div>
+      <label class="select">
+        <h1>Select a scale</h1>
+        <select id="scaleSelectSample">
+          <option value="ionian">ionian</option>
+          <option value="dorian">dorian</option>
+          <option value="phrygian">phrygian</option>
+          <option value="lydian" selected>lydian</option>
+          <option value="mixolydian">mixolydian</option>
+          <option value="aeolian">aeolian</option>
+          <option value="locrian">locrian</option>
+        </select>
+      </label>
+      <label class="select">
+        <h1>Select a sample</h1>
+        <select id="sampleSelect">
+          <option value="sample1">ahh</option>
+          <option value="sample2">eeh</option>
+          <option value="sample3">oh</option>
+          <option value="sample4" selected>ooh</option>
+        </select>
+      </label>
+      <div class="playbackSpeed-sample">
+        <h2>Playback rate</h2>
+        <input id="playbackSpeedSample" type="range" min="0.5" max="2" step="0.01"></input>
+      </div>
+      <div class="note-probability-sample">
+        <h2>Note probability</h2>
+        <input id="noteProbabilitySample" type="range" min="0" max="1" step="0.01"></input>
+      </div>
+      <div class="volume-sample">
+        <h2>Volume</h2>
+        <input id="volumeSample" type="range" min="-10" max="10" step="0.1"></input>
+      </div>
+
+    </div>
+
+    <!--Synth container one-->
+
+    <div class="synth-container-one">
+
+      <div>
+        <h1>Play a random synth pattern</h1>
+        <button id="playSynthOne">Play...</button>
+      </div>
+      <div>
+        <h1>Stop the pattern</h1>
+        <button id="stopSynthOne">Stop!</button>
+      </div>
+      <label class="select">
+        <h1>Select a scale</h1>
+        <select id="scaleSelectSynthOne">
+          <option value="ionian">ionian</option>
+          <option value="dorian">dorian</option>
+          <option value="phrygian">phrygian</option>
+          <option value="lydian" selected>lydian</option>
+          <option value="mixolydian">mixolydian</option>
+          <option value="aeolian">aeolian</option>
+          <option value="locrian">locrian</option>
+        </select>
+      </label>
+      <label class="select">
+        <h1>Select a waveform</h1>
+        <select id="oscillatorShapeSynthOne">
+          <option value="sine">Sine</option>
+          <option value="square">Square</option>
+          <option value="triangle">Triangle</option>
+          <option value="sawtooth" selected>Sawtooth</option>
+        </select>
+      </label>
+      <div class="playbackSpeed-synth-one">
+        <h2>Playback rate</h2>
+        <input id="playbackSpeedSynthOne" type="range" min="0.5" max="2" step="0.01"></input>
+      </div>
+      <div class="note-probability-synth-one">
+        <h2>Note probability</h2>
+        <input id="noteProbabilitySynthOne" type="range" min="0" max="1" step="0.01"></input>
+      </div>
+      <div class="volume-synth-one">
+        <h2>Volume</h2>
+        <input id="volumeSynthOne" type="range" min="-10" max="10" step="0.01"></input>
+      </div>
+
+    </div>
+
+
+    <!--Synth container two-->
+
+    <div class="synth-container-two">
+
+      <div>
+        <h1>Play a random synth pattern</h1>
+        <button id="playSynthTwo">Play...</button>
+      </div>
+      <div>
+        <h1>Stop the pattern</h1>
+        <button id="stopSynthTwo">Stop!</button>
+      </div>
+      <label class="select">
+        <h1>Select a scale</h1>
+        <select id="scaleSelectSynthTwo">
+          <option value="ionian">ionian</option>
+          <option value="dorian">dorian</option>
+          <option value="phrygian">phrygian</option>
+          <option value="lydian" selected>lydian</option>
+          <option value="mixolydian">mixolydian</option>
+          <option value="aeolian">aeolian</option>
+          <option value="locrian">locrian</option>
+        </select>
+      </label>
+      <label class="select">
+        <h1>Select a waveform</h1>
+        <select id="oscillatorShapeSynthTwo">
+          <option value="sine">Sine</option>
+          <option value="square">Square</option>
+          <option value="triangle">Triangle</option>
+          <option value="sawtooth" selected>Sawtooth</option>
+        </select>
+      </label>
+      <div class="playbackSpeed-synth-two">
+        <h2>Playback rate</h2>
+        <input id="playbackSpeedSynthTwo" type="range" min="0.5" max="2" step="0.01"></input>
+      </div>
+      <div class="note-probability-synth-two">
+        <h2>Note probability</h2>
+        <input id="noteProbabilitySynthTwo" type="range" min="0" max="1" step="0.01"></input>
+      </div>
+      <div class="volume-synth-two">
+        <h2>Volume</h2>
+        <input id="volumeSynthTwo" type="range" min="-10" max="10" step="0.01"></input>
+      </div>
+
+    </div>
+
+    <!--FX section-->
+
+  </div>
+
+  <div class="title">
+    <h1>FX section</h1>
+  </div>
+
+  <div class="fx-section">
+    <div class="delaySpeed-sample">
+      <h2>Delay</h2>
+      <input id="delaySpeedSample" type="range" min="0.25" max="2" step="0.01"></input>
+    </div>
+    <div class="reverbSize-sample">
+      <h2>Reverb size</h2>
+      <input id="reverbSizeSample" type="range" min="0.1" max="1" step="0.01"></input>
+    </div>
+    <div class="reverbWet-sample">
+      <h2>Reverb wet</h2>
+      <input id="reverbWetSample" type="range" min="0" max="1" step="0.01"></input>
+    </div>
+  </div>
+
+
+</body>
+  <script src="bundle.js"></script>
+</html>
